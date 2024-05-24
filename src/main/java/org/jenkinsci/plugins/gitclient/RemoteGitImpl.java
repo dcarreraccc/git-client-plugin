@@ -850,6 +850,12 @@ class RemoteGitImpl implements GitClient, hudson.plugins.git.IGitAPI, Serializab
     }
 
     /** {@inheritDoc} */
+    public List<String> showRevision(ObjectId from, ObjectId to, Boolean useRawOutput, Boolean suppressMergeCommitDiff)
+            throws GitException, InterruptedException {
+        return proxy.showRevision(from, to, useRawOutput, suppressMergeCommitDiff);
+    }
+
+    /** {@inheritDoc} */
     @Override
     public boolean hasGitModules(String treeIsh) throws GitException, InterruptedException {
         return getGitAPI().hasGitModules(treeIsh);
